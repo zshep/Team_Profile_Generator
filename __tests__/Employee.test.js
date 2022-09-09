@@ -4,9 +4,13 @@ const Employee = require("../lib/Employee");
     describe("Employee", () =>{
         describe("name", () => {
 
-            it("should generate name from Employee constructor")
+            it("should generate name from Employee class constructor", () => {
+                const username = `${}git `
 
-            //expect(result).toEqual(answer);
+                
+                expect(result).toEqual(answer);
+            })
+
 
         });
 
