@@ -1,5 +1,5 @@
 const Employee = require("../lib/Employee");
-const joe = new Employee("joe", 01, "joe@yhoo.com");
+const joe = new Employee("joe", 1, "joe@yhoo.com");
 
     // Unit test - Employee
     describe("Employee", () =>{
@@ -13,6 +13,25 @@ const joe = new Employee("joe", 01, "joe@yhoo.com");
 
         });
 
+        describe("id", () => {
+
+            it("should generate id from Employee class constructor", () => {
+               
+                expect(joe.id).toEqual(1);
+            })
+
+
+        });
+
+        describe("email, () => {
+
+            it("should generate an email from Employee class constructor", () => {
+               
+                expect(joe.Email).toEqual(1);
+            })
+
+
+        });
 
 
 

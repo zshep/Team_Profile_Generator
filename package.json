@@ -10,9 +10,10 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
+    "test": "jest",
+    "start": "node index.js",
+    "twist": "git add . && git commit -m \"backup\" && git push"
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",
