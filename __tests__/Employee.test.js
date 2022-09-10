@@ -42,21 +42,32 @@ const joe = new Employee("joe", 1, "joe@yhoo.com");
 
         });
 
+        describe("getId", () => {
+            it("should grab the Id from class constructor", () => {
+                
+                expect(joe.getId()).toEqual(joe.id);
 
+            })
 
+        });
 
+        describe("getEmail", () => {
+            it("should grab the email from class constructor", () => {
+                
+                expect(joe.getEmail()).toEqual(joe.email);
 
+            })
 
+        });
 
+        describe("getRole", () => {
+            it("should grab the Role from class constructor", () => {
+                
+                expect(joe.getRole()).toEqual("Employee");
 
+            })
 
-
-
-
-
-
-
-
+        });
 
 
 
