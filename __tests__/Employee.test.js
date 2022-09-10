@@ -32,7 +32,7 @@ const joe = new Employee("joe", 1, "joe@yhoo.com");
 
 
         });
-
+            //testing the getName() method
         describe("getName", () => {
             it("should grab the name from class constructor", () => {
                 
@@ -41,7 +41,7 @@ const joe = new Employee("joe", 1, "joe@yhoo.com");
             })
 
         });
-
+            //testing the getId() method
         describe("getId", () => {
             it("should grab the Id from class constructor", () => {
                 
@@ -50,7 +50,7 @@ const joe = new Employee("joe", 1, "joe@yhoo.com");
             })
 
         });
-
+            //testing the getEmail() method
         describe("getEmail", () => {
             it("should grab the email from class constructor", () => {
                 
@@ -59,7 +59,7 @@ const joe = new Employee("joe", 1, "joe@yhoo.com");
             })
 
         });
-
+            //testing the getRole() method
         describe("getRole", () => {
             it("should grab the Role from class constructor", () => {
                 
@@ -68,10 +68,6 @@ const joe = new Employee("joe", 1, "joe@yhoo.com");
             })
 
         });
-
-
-
-
 
 
     });
