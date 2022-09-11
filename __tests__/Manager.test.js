@@ -10,7 +10,14 @@ const bob = new Manager("bob", 1, "bobMarly@gmail.com", 25);
 
                 expect(bob.officeNumber).toEqual(25);
                })
-      } );
+         });
+         describe("getRole", () => {
+            it("should override the role to Manager", () =>{
+                expect(bob.role).toEqual("Manager")
+
+            })
+
+         })
 
     });
 
