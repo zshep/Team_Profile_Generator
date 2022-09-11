@@ -1,4 +1,25 @@
-// link to Employee.test
+const Manager = require("../lib/Manager");
+const bob = new Manager("bob", 1, "bobMarly@gmail.com", 25);
+
+    //Unit test - Manager
+    describe("Manager", () =>{
+        // testing officeNumber
+        describe("officeNumber", () => {
+
+            it("should generate the office number from Manager constructor", () => {     
+
+                expect(bob.officeNumber).toEqual(25);
+               })
+      } );
+
+    });
+
+
+
+
+
+
+
 
 
 // WHEN I start the application
