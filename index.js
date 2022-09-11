@@ -12,7 +12,20 @@ const { inquirer } = require("inquirer");
 
 
 
-
+// WHEN I start the application
+// THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
+const questions = [
+    { type: "input",
+     message: "hello manager, what is your name?",
+     name: "manager_name"
+     },
+     { type: "input",
+     message: "hello manager, what is your name?",
+     name: "manager_name"
+     }
+ 
+ 
+ ]
 
 
 

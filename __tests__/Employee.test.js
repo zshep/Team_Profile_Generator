@@ -10,8 +10,6 @@ const joe = new Employee("joe", 1, "joe@yhoo.com");
                
                 expect(joe.name).toEqual("joe");
             })
-
-
         });
         // testing the id arguement
         describe("id", () => {
