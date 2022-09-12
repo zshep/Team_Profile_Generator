@@ -5,6 +5,7 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const fs = require('fs');
+const { stringify } = require("querystring");
 
 
 
@@ -98,7 +99,7 @@ const intern_questions = [
 function WriteHtml(answer) {
 
     //writing file from user input
-    fs.writeFile("team.html", gennerate_members(answer), (err) => {
+    fs.writeFile("team.html", generate_members(answer), (err) => {
         err ? console.error(err) : console.log("Success writing file")
     
     })
@@ -108,9 +109,8 @@ function WriteHtml(answer) {
 
 // function to generate make up of html card
 const generate_members = (answers) => {
-
-
-
+    let new_member =stringify(answers);
+    return new_member;
 }
 
 //function to initialize the app
@@ -122,8 +122,8 @@ const init = async () => {
             //debugging
             console.table(answers);
             const manager = new Manager(answers.manager_name, answers.manager_id, answers.manager_email, answers.manager_office);
-            console.log("manager was created")
-            console.log(manager);
+            console.log("manager was created");
+            WriteHtml(manager);
 
             //goes to menu after manager questions answered 
             init_menu();
@@ -162,6 +162,9 @@ const init_engineer = () => {
 
             //debugging
             console.table(answers);
+            const engineer = new Engineer(answers.engineer_name, answers.engineer_id, answers.engineer_email, answers.engineer_gitHub);
+            console.log("engineer was created");
+            console.log(engineer);
 
             init_menu();
 
@@ -178,7 +181,9 @@ const init_intern = () => {
 
         //debugging
         console.table(answers);
-
+        const intern = new Intern(answers.intern_name, answers.intern_id, answers.intern_email, answers.intern_school);
+            console.log("intern was created");
+            console.log(intern);
         init_menu();
 
     })
@@ -186,13 +191,9 @@ const init_intern = () => {
 }
 
 
- //staring the writeHTML function
-//WriteHtml(answers);
 
-
-
-
-
+//Action code
+//starting the app
 init();
 
 
