@@ -1,9 +1,9 @@
 //load in needed libraries
 const inquirer = require("inquirer");
-const { Employee } = require("./lib/Employee");
-const { Manager } = require("./lib/Manager");
-const { Engineer } = require("./lib/Engineer");
-const { Intern } = require("./lib/Intern");
+const Employee = require("./lib/Employee");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const fs = require('fs');
 
 
@@ -97,10 +97,21 @@ const intern_questions = [
 //function to take data from inquirer and write the html
 function WriteHtml(answer) {
 
-
+    //writing file from user input
+    fs.writeFile("team.html", gennerate_members(answer), (err) => {
+        err ? console.error(err) : console.log("Success writing file")
+    
+    })
 };
 
+    
 
+// function to generate make up of html card
+const generate_members = (answers) => {
+
+
+
+}
 
 //function to initialize the app
 const init = async () => {
@@ -110,11 +121,13 @@ const init = async () => {
 
             //debugging
             console.table(answers);
+            const manager = new Manager(answers.manager_name, answers.manager_id, answers.manager_email, answers.manager_office);
+            console.log("manager was created")
+            console.log(manager);
 
+            //goes to menu after manager questions answered 
             init_menu();
-
         })
-
 }
 
 //function for menu questions
@@ -136,12 +149,10 @@ const init_menu = () => {
                     console.log("the user has ended the app")
                     return;
             }
-           
-
+         
         })
 
 }
-
 
 //function for engineer questions
 const init_engineer = () => {
@@ -180,9 +191,8 @@ const init_intern = () => {
 
 
 
-// GIVEN a command-line application that accepts user input
-//start the program by using:
-// node index.js
+
+
 init();
 
 
