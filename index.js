@@ -4,8 +4,8 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const htmloutline = require("./src/htmloutline");
-import { WriteHtml } from "./src/htmloutline";
+const WriteHtml = require("./src/htmloutline");
+
 
 //empty array to hold all of the employee cards
 const employeecards =[];

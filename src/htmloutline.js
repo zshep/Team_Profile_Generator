@@ -2,7 +2,7 @@
 const fs = require('fs');
 const Employee = require("../lib/Employee");
 
-export const htmlHeadTag = `
+const htmlHeadTag = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@ export const htmlHeadTag = `
 <link rel="stylesheet" href="./style.css">
 </head>`;
 
-export const htmlBodyTagOpen = `
+const htmlBodyTagOpen = `
 <body>
 <div class="header">  
 <h2>My Team</h2>
@@ -18,7 +18,7 @@ export const htmlBodyTagOpen = `
 <div class="allCards">`;
 
 
-export const htmlBodyTagClose = `    
+const htmlBodyTagClose = `    
 </div>
 </body>
 </html>`;
@@ -28,7 +28,7 @@ export const htmlBodyTagClose = `
 
 
 //function to take data from inquirer and generate the html
-export function WriteHtml() {
+function WriteHtml() {
     let new_member = employeecards.join();
     const string = `${htmlHeadTag}${htmlBodyTagOpen}${new_member}${htmlBodyTagClose}`
     
