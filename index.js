@@ -4,10 +4,11 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const fs = require('fs');
-const { stringify } = require("querystring");
+const htmloutline = require("./src/htmloutline");
+import { WriteHtml } from "./src/htmloutline";
 
-
+//empty array to hold all of the employee cards
+const employeecards =[];
 
 //array of questions for the manager
 const main_questions = [
@@ -93,25 +94,10 @@ const intern_questions = [
 ]
 
 
-// WHEN I decide to finish building my team
-// THEN I exit the application, and the HTML is generated
-//function to take data from inquirer and write the html
-function WriteHtml(answer) {
-
-    //writing file from user input
-    fs.writeFile("team.html", generate_members(answer), (err) => {
-        err ? console.error(err) : console.log("Success writing file")
-    
-    })
-};
 
     
 
-// function to generate make up of html card
-const generate_members = (answers) => {
-    let new_member =stringify(answers);
-    return new_member;
-}
+
 
 //function to initialize the app
 const init = async () => {
@@ -123,7 +109,7 @@ const init = async () => {
             console.table(answers);
             const manager = new Manager(answers.manager_name, answers.manager_id, answers.manager_email, answers.manager_office);
             console.log("manager was created");
-            WriteHtml(manager);
+            
 
             //goes to menu after manager questions answered 
             init_menu();
@@ -132,6 +118,7 @@ const init = async () => {
 
 //function for menu questions
 const init_menu = () => {
+
     inquirer.prompt(continue_questions)
 
         .then(answers => {
@@ -147,11 +134,11 @@ const init_menu = () => {
 
                 case "I am finished":
                     console.log("the user has ended the app")
-                    return;
+                    //
+                    return WriteHtml(); //return function to start making htmal page
             }
-         
+     
         })
-
 }
 
 //function for engineer questions
@@ -159,17 +146,35 @@ const init_engineer = () => {
     inquirer.prompt(engineer_questions)
 
         .then(answers => {
-
             //debugging
             console.table(answers);
-            const engineer = new Engineer(answers.engineer_name, answers.engineer_id, answers.engineer_email, answers.engineer_gitHub);
-            console.log("engineer was created");
-            console.log(engineer);
-
+            create_engineer_card(answers);                      
             init_menu();
-
         })
+}
 
+//function to generate engineer html card
+const create_engineer_card = (results) => {
+    const engineer = new Engineer(results.engineer_name, results.engineer_id, results.engineer_email, results.engineer_github);
+            console.log("engineer was created");
+    // string to generate the html card for engineer
+    const engineerHTMLcard = `
+    <div class="mainCard">
+    <div class="container">
+        <div class= "headBanner">
+            <h1>${engineer.getName()}</h1>
+            <h2>${engineer.getRole()}</h2>
+        </div>
+        <div class= "bottomInfo">
+            <p> Id: ${engineer.getId()}</p>
+            <p><a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
+            <p><a href="https://github.com/${engineer.getGithub()}" target="_blank">Github Link</a></p>
+        </div>
+    </div>
+    </div>
+    `;
+    console.log(employeecards);
+    employeecards.push(engineerHTMLcard);
 }
 
 //function for intern questions
