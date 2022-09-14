@@ -95,11 +95,6 @@ const intern_questions = [
 ]
 
 
-
-    
-
-
-
 //function to initialize the app
 const init = async () => {
     inquirer.prompt(main_questions)
@@ -107,14 +102,37 @@ const init = async () => {
         .then(answers => {
 
             //debugging
-            console.table(answers);
-            const manager = new Manager(answers.manager_name, answers.manager_id, answers.manager_email, answers.manager_office);
-            console.log("manager was created");
             
-
+            console.table(answers);
+            create_manager_card(answers);                      
+                    
             //goes to menu after manager questions answered 
             init_menu();
         })
+}
+
+//function to generate engineer html card
+const create_manager_card = (results) => {
+    const manager = new Manager(results.manager_name, results.manager_id, results.manager_email, results.manager_office);
+            console.log("manager was created");
+    // string to generate the html card for engineer
+    const managerHTMLcard = `
+    <div class="mainCard">
+    <div class="container">
+        <div class= "headBanner">
+            <h1>${manager.getName()}</h1>
+            <h2>${manager.getRole()}</h2>
+        </div>
+        <div class= "bottomInfo">
+            <p> Id: ${manager.getId()}</p>
+            <p><a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
+            <p> Office Number:${manager.getOffice()}</p>
+        </div>
+    </div>
+    </div>
+    `;
+    
+   employeecards.push(managerHTMLcard);
 }
 
 //function for menu questions
@@ -169,7 +187,7 @@ const create_engineer_card = (results) => {
         <div class= "bottomInfo">
             <p> Id: ${engineer.getId()}</p>
             <p><a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
-            <p><a href="https://github.com/${engineer.getGithub()}" target="_blank">Github Link</a></p>
+            <p><a href="https://github.com/${engineer.getGithub()}">Github Link</a></p>
         </div>
     </div>
     </div>
@@ -187,15 +205,40 @@ const init_intern = () => {
 
         //debugging
         console.table(answers);
-        const intern = new Intern(answers.intern_name, answers.intern_id, answers.intern_email, answers.intern_school);
-            console.log("intern was created");
-            console.log(intern);
+        create_intern_card(answers);
         init_menu();
 
     })
 
 }
 
+//function to generate engineer html card
+const create_intern_card = (answers) => {
+    const intern = new Intern(answers.intern_name, answers.intern_id, answers.intern_email, answers.intern_school);
+            console.log("intern was created");
+    // string to generate the html card for engineer
+    const internHTMLcard = `
+    <div class="mainCard">
+    <div class="container">
+        <div class= "headBanner">
+            <h1>${intern.getName()}</h1>
+            <h2>${intern.getRole()}</h2>
+        </div>
+        <div class= "bottomInfo">
+            <p> Id: ${intern.getId()}</p>
+            <p><a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
+            <p> School:${intern.getSchool()}</p>
+        </div>
+    </div>
+    </div>
+    `;
+    
+   employeecards.push(internHTMLcard);
+}
+
+
+
+// html tags and code to help generate html file
 const htmlHeadTag = `
 <!DOCTYPE html>
 <html>
