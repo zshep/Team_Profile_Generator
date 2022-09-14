@@ -126,7 +126,7 @@ const create_manager_card = (results) => {
         <div class= "bottomInfo">
             <p> Id: ${manager.getId()}</p>
             <p><a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
-            <p> Office Number:${manager.getOffice()}</p>
+            <p> Office Number: ${manager.getOffice()}</p>
         </div>
     </div>
     </div>

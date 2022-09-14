@@ -39,4 +39,8 @@
  GitHub: http://www.github.com/zshep 
   
  Email: zsheperdigian@gmail.com 
+
+Link to Application: https://zshep.github.io/Team_Profile_Generator/
+
+Link to video: https://drive.google.com/file/d/1KsUe3eDfPFGMI-jhuZIa_yykBugbQSf5/view
     
