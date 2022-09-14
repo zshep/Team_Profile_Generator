@@ -1,6 +1,9 @@
 // this script is to have an outline of the html
 const fs = require('fs');
 const Employee = require("../lib/Employee");
+//const employeecards = require("../index")
+
+//empty array to hold all of the employee cards
 
 const htmlHeadTag = `
 <!DOCTYPE html>
@@ -29,7 +32,8 @@ const htmlBodyTagClose = `
 
 //function to take data from inquirer and generate the html
 function WriteHtml() {
-    let new_member = employeecards.join();
+    console.log(typeof employeecards );
+    let new_member = employeecards;
     const string = `${htmlHeadTag}${htmlBodyTagOpen}${new_member}${htmlBodyTagClose}`
     
     
