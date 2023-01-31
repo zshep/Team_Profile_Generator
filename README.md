@@ -1,5 +1,7 @@
 # Shep's Team Profile Generator [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  
+
+![Alt text](./screenshot.jpg?raw=true "Screenshot")
+
  ## **Table of Contents**
   
  [Description](#id-1)
